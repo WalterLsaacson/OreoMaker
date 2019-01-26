@@ -1,3 +1,13 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">OreoMaker</string>
+
+    <string name="title_activity_oreo">Oreo</string>
+    <string name="i_want">我想要：</string>
+    <string name="make_oreo">制作</string>
+    <string name="hint_oreo">奥利奥…</string>
+    <string name="add_ao_text">+奥</string>
+    <string name="add_li_text">+利</string>
+    <string name="add_text">+与</string>
+    <string name="sub_text">- 1</string>
+
 </resources>

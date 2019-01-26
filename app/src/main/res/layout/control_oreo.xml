@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fake_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="end"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/title_activity_oreo"
+        android:src="@drawable/ic_tips" />
+
+    <TextView
+        android:id="@+id/i_want"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/i_want_margin_top"
+        android:text="@string/i_want"
+        android:textColor="@android:color/tab_indicator_text"
+        android:textSize="@dimen/i_want_text_size"
+        tools:ignore="ContentDescription,RelativeOverlap" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/stuffing_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/i_want"
+        android:layout_marginStart="@dimen/stuffing_margin"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="@dimen/stuffing_margin"
+        app:cardCornerRadius="@dimen/stuffing_radius">
+
+        <TextView
+            android:id="@+id/stuffing_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/i_want"
+            android:layout_margin="@dimen/stuffing_radius"
+            android:gravity="center"
+            android:hint="@string/hint_oreo"
+            android:maxLines="5"
+            android:textSize="@dimen/stuffing_text_size" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/add_stuffing_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stuffing_container"
+        android:layout_margin="@dimen/add_stuffing_container_margin"
+        android:layout_marginTop="48dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/add_ao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/add_stuffing_icon_margin"
+            android:background="@drawable/add_stuffing_text_style"
+            android:text="@string/add_ao_text"
+            android:textSize="@dimen/add_text_size" />
+
+        <TextView
+            android:id="@+id/add_li"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/add_stuffing_icon_margin"
+            android:background="@drawable/add_stuffing_text_style"
+            android:text="@string/add_li_text"
+            android:textSize="@dimen/add_text_size" />
+
+        <TextView
+            android:id="@+id/add_slice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/add_stuffing_icon_margin"
+            android:background="@drawable/add_stuffing_text_style"
+            android:text="@string/add_text"
+            android:textSize="@dimen/add_text_size" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_stuffing_container"
+        android:layout_margin="@dimen/add_stuffing_container_margin"
+        android:padding="24dp"
+        android:layout_marginTop="48dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/sub_piece"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/add_stuffing_icon_margin"
+            android:background="@drawable/add_stuffing_text_style"
+            android:padding="8dp"
+            android:text="@string/sub_text"
+            android:textSize="@dimen/add_text_size" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/random_oreo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/hint_oreo"
+            android:src="@drawable/ic_random" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/maker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/make_oreo_bkg"
+        android:gravity="center"
+        android:padding="@dimen/oreo_maker_padding"
+        android:text="@string/make_oreo"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/oreo_maker_text_size"
+        android:textStyle="italic" />
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gap_floor_color">#D1D1D1</color>
+    <color name="top_floor_light_color">#454545</color>
+    <color name="top_floor_deep_color">#333333</color>
+</resources>
