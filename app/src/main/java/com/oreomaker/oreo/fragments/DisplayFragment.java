@@ -8,19 +8,31 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.oreomaker.R;
 import com.oreomaker.oreo.OreoViewModel;
+import com.oreomaker.oreo.Utils;
+import com.p.oreoview.OreoAdapter;
+import com.p.oreoview.OreoView;
+import com.p.oreoview.PieceProperty;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 // TODO back key or button return to control fragment
 public class DisplayFragment extends Fragment {
 
-    OreoViewModel mOreoViewModel;
-    ResetOreo resetOreo;
+    private static final String TAG = "DisplayFragment";
+    ArrayList<PieceProperty> mPieceList;
+    ResetOreo mResetOreo;
+    OreoView mOreoView;
+    OreoAdapter mOreoAdapter;
 
-    public void setResetOreo(ResetOreo resetOreo) {
-        this.resetOreo = resetOreo;
+    TextView mContentDes;
+
+    public void setmResetOreo(ResetOreo mResetOreo) {
+        this.mResetOreo = mResetOreo;
     }
 
     @Override
@@ -29,16 +41,38 @@ public class DisplayFragment extends Fragment {
         initData();
     }
 
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden) {
+            //onPaused
+        } else {
+            //onResume
+            mContentDes.setText(Utils.getDescription(mPieceList));
+            mOreoView.setAdapter(mOreoAdapter);
+        }
+    }
+
+    private void initView(View view) {
+        mContentDes = view.findViewById(R.id.gen_des);
+        mOreoView = view.findViewById(R.id.oreo_display);
+        view.findViewById(R.id.reset_data).setOnClickListener((l) -> mResetOreo.resetData());
+    }
+
     private void initData() {
-        mOreoViewModel = ViewModelProviders.of(Objects.requireNonNull(getActivity()))
-                .get(OreoViewModel.class);
+        mPieceList = ViewModelProviders.of(Objects.requireNonNull(getActivity()))
+                .get(OreoViewModel.class).getPieceList();
+        mOreoAdapter = new OreoAdapter(mPieceList);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.display_oreo, container, false);
+        initView(view);
+        return view;
     }
+
 
     public interface ResetOreo {
         void resetData();

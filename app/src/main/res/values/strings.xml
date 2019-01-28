@@ -9,5 +9,8 @@
     <string name="add_li_text">+利</string>
     <string name="add_text">+与</string>
     <string name="sub_text">- 1</string>
+    <string name="display_tip_title">這是你的</string>
+    <string name="save_oreo">保存为图片</string>
+    <string name="reset_data">再来一块</string>
 
 </resources>

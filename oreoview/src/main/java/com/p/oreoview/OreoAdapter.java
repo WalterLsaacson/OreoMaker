@@ -5,7 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 
+import java.util.ArrayList;
+
 public class OreoAdapter implements ListAdapter {
+
+    private ArrayList<PieceProperty> mPieceList;
+
+    public OreoAdapter(ArrayList<PieceProperty> pieceList) {
+        mPieceList = pieceList;
+    }
 
     //set items clickable and selectable
     //second method set specified item status
@@ -23,7 +31,7 @@ public class OreoAdapter implements ListAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return mPieceList.size();
     }
 
     @Override

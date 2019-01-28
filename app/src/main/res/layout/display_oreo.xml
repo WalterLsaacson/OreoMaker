@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/display_tip_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/i_want_padding"
+        android:text="@string/display_tip_title"
+        android:textColor="@android:color/tab_indicator_text"
+        android:textSize="@dimen/i_want_text_size" />
+
+    <TextView
+        android:id="@+id/gen_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/stuffing_radius"
+        android:gravity="center"
+        android:maxLines="5"
+        android:textSize="@dimen/stuffing_text_size" />
+
+    <com.p.oreoview.OreoView
+        android:id="@+id/oreo_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/save_oreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_save_oreo"
+            android:text="@string/save_oreo"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/small_text_size" />
+
+        <TextView
+            android:id="@+id/reset_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/shape_save_oreo"
+            android:text="@string/reset_data"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/small_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

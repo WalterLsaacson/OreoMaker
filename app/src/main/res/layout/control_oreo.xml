@@ -22,7 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/i_want_margin_top"
+        android:layout_margin="@dimen/i_want_padding"
+        android:padding="@dimen/i_want_padding"
         android:text="@string/i_want"
         android:textColor="@android:color/tab_indicator_text"
         android:textSize="@dimen/i_want_text_size"
@@ -66,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/add_stuffing_icon_margin"
-            android:background="@drawable/add_stuffing_text_style"
+            android:background="@drawable/shape_add_stuffing_text"
             android:text="@string/add_ao_text"
             android:textSize="@dimen/add_text_size" />
 
@@ -75,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/add_stuffing_icon_margin"
-            android:background="@drawable/add_stuffing_text_style"
+            android:background="@drawable/shape_add_stuffing_text"
             android:text="@string/add_li_text"
             android:textSize="@dimen/add_text_size" />
 
@@ -84,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/add_stuffing_icon_margin"
-            android:background="@drawable/add_stuffing_text_style"
+            android:background="@drawable/shape_add_stuffing_text"
             android:text="@string/add_text"
             android:textSize="@dimen/add_text_size" />
 
@@ -96,16 +97,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_stuffing_container"
         android:layout_margin="@dimen/add_stuffing_container_margin"
-        android:padding="24dp"
         android:layout_marginTop="48dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/sub_piece"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/add_stuffing_icon_margin"
-            android:background="@drawable/add_stuffing_text_style"
+            android:background="@drawable/shape_add_stuffing_text"
             android:padding="8dp"
             android:text="@string/sub_text"
             android:textSize="@dimen/add_text_size" />

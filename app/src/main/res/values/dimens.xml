@@ -13,7 +13,7 @@
     <dimen name="card_radius">16dp</dimen>
     <dimen name="card_shadow">16dp</dimen>
     <dimen name="card_margin">24dp</dimen>
-    <dimen name="i_want_margin_top">36dp</dimen>
+    <dimen name="i_want_padding">18dp</dimen>
     <dimen name="i_want_text_size">20sp</dimen>
     <dimen name="oreo_maker_text_size">25sp</dimen>
     <dimen name="oreo_maker_padding">16dp</dimen>
@@ -23,5 +23,6 @@
     <dimen name="add_stuffing_icon_margin">16dp</dimen>
     <dimen name="stuffing_text_size">25sp</dimen>
     <dimen name="add_text_size">28sp</dimen>
+    <dimen name="small_text_size">18sp</dimen>
 
 </resources>
