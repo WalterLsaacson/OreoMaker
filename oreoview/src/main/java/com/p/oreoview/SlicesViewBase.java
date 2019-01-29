@@ -13,13 +13,15 @@ import java.util.logging.Level;
 
 abstract class SlicesViewBase extends AppCompatImageView {
 
+    protected PieceProperty mProperty;
     static final float OVAL_RATIO = 0.8f;
-    //is paste upper piece
-    private boolean mPasteUpperPiece;
-    private float mHeight;
-    private float mWidth;
+    protected float mHeight;
+    protected float mWidth;
     //custom floor color
-    private Paint mFloorPaint;
+    //todo why dont use same paint(change color)?
+    protected Paint mFloorPaint;
+    protected Paint mBorderPaint;
+    protected Paint mArcSidePaint;
 
     public SlicesViewBase(Context context) {
         this(context, null);
@@ -34,11 +36,30 @@ abstract class SlicesViewBase extends AppCompatImageView {
         initPaints();
     }
 
+    //TODO bad code
+    public void setProperty(PieceProperty property) {
+        this.mProperty = property;
+    }
+
     private void initPaints() {
         mFloorPaint = new Paint();
-        mFloorPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        mFloorPaint.setColor(getContext().getColor(R.color.gap_floor_color));
+        mFloorPaint.setStyle(Paint.Style.FILL);
+        mFloorPaint.setColor(getFloorColor());
+
+        mBorderPaint = new Paint();
+        mBorderPaint.setStyle(Paint.Style.FILL);
+        mBorderPaint.setColor(getBorderColor());
+
+        mArcSidePaint = new Paint();
+        mArcSidePaint.setStyle(Paint.Style.FILL);
+        mArcSidePaint.setColor(getArcSideColor());
     }
+
+    protected abstract int getFloorColor();
+
+    protected abstract int getArcSideColor();
+
+    protected abstract int getBorderColor();
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -46,33 +67,30 @@ abstract class SlicesViewBase extends AppCompatImageView {
         mHeight = getHeight();
         mWidth = getWidth();
 
-        mWidth = mWidth * getZoomRatio();
-        mHeight = mHeight * getZoomRatio();
+        //parameter check
+        float zoomRatio = getZoomRatio();
+        if (zoomRatio < 0.1f || zoomRatio > 1.0f) {
+            throw new IllegalArgumentException("Zoom ratio must between [0.1,1.0f]");
+        }
+        mWidth = mWidth * zoomRatio;
+        mHeight = mHeight * zoomRatio;
 
         //will draw floor if this piece separate from upper piece
-        if (!mPasteUpperPiece) {
-
+        if (!mProperty.isPasteUpper() || mProperty.isTopSlice()) {
             drawFloor(canvas);
         }
+        drawArcSide(canvas);
+        drawBorder(canvas);
     }
 
-    /**
-     * set floor color
-     *
-     * @param floorColor target color
-     */
-    public void setFloorColor(int floorColor) {
-        mFloorPaint.setColor(floorColor);
+    protected void drawBorder(Canvas canvas) {
+
     }
 
-    /**
-     * if paste upper piece will draw colorful floor
-     *
-     * @param pasteUpperPiece boolean value
-     */
-    public void setPasteUpperPiece(boolean pasteUpperPiece) {
-        mPasteUpperPiece = pasteUpperPiece;
+    protected void drawArcSide(Canvas canvas) {
+
     }
+
 
     /*
      ***draw floor for this piece.
@@ -84,8 +102,7 @@ abstract class SlicesViewBase extends AppCompatImageView {
         //bottom = hr + h * (1 -r ) / 2 = h * (r + 1) / 2
         float right = (mWidth + mHeight) / 2;
         float bottom = mHeight * (1 + OVAL_RATIO) / 2;
-        if (mWidth < mHeight) {
-        }
+
 
         RectF rectF = new RectF();
         //Scale padding caused by overall scale
@@ -99,6 +116,13 @@ abstract class SlicesViewBase extends AppCompatImageView {
         canvas.drawOval(rectF, mFloorPaint);
     }
 
+    /*
+     *** Override this method to scale piece
+     * must between [0.1,1.0]
+     * maybe more bigger or smaller
+     *
+     * @return Scaling ratio
+     */
     protected float getZoomRatio() {
         return 1.0f;
     }

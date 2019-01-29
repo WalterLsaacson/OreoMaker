@@ -52,7 +52,7 @@ public class OreoActivity extends AppCompatActivity implements ControlFragment.C
         controlFragment.setCreateOreo(this);
 
         displayFragment = new DisplayFragment();
-        displayFragment.setmResetOreo(this);
+        displayFragment.setResetOreo(this);
 
         //fragment transaction
         mFragmentManager = getSupportFragmentManager();

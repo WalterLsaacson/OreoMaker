@@ -5,8 +5,9 @@ package com.p.oreoview;
  * Such as : oreo, li, paste upper
  */
 public class PieceProperty {
-    int type;
-    boolean isPasteUpper;
+    private int type;
+    private boolean isPasteUpper;
+    private boolean isTopSlice;
 
     public PieceProperty(int type) {
         this.type = type;
@@ -26,5 +27,13 @@ public class PieceProperty {
 
     public void setPasteUpper(boolean pasteUpper) {
         isPasteUpper = pasteUpper;
+    }
+
+    public boolean isTopSlice() {
+        return isTopSlice;
+    }
+
+    public void setTopSlice(boolean topSlice) {
+        isTopSlice = topSlice;
     }
 }

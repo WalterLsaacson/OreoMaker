@@ -21,6 +21,7 @@ import com.oreomaker.oreo.Utils;
 import com.p.oreoview.Const;
 import com.p.oreoview.PieceProperty;
 
+import java.text.Normalizer;
 import java.util.List;
 import java.util.Objects;
 
@@ -130,6 +131,10 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
                     //TODO add time check
                     Toast.makeText(getActivity(), "巧妇难为无米之炊。", Toast.LENGTH_LONG).show();
                     break;
+                }
+                PieceProperty pieceProperty = mOreoList.get(mOreoList.size() - 1);
+                if (pieceProperty.getType() == Const.AND_SLICE) {
+                    mOreoList.remove(pieceProperty);
                 }
                 mCreateOreo.createOreo();
                 break;

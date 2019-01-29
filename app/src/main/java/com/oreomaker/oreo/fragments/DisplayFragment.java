@@ -8,13 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.oreomaker.R;
 import com.oreomaker.oreo.OreoViewModel;
 import com.oreomaker.oreo.Utils;
 import com.p.oreoview.OreoAdapter;
-import com.p.oreoview.OreoView;
 import com.p.oreoview.PieceProperty;
 
 import java.util.ArrayList;
@@ -26,12 +26,12 @@ public class DisplayFragment extends Fragment {
     private static final String TAG = "DisplayFragment";
     ArrayList<PieceProperty> mPieceList;
     ResetOreo mResetOreo;
-    OreoView mOreoView;
+    ListView mOreoView;
     OreoAdapter mOreoAdapter;
 
     TextView mContentDes;
 
-    public void setmResetOreo(ResetOreo mResetOreo) {
+    public void setResetOreo(ResetOreo mResetOreo) {
         this.mResetOreo = mResetOreo;
     }
 
@@ -49,14 +49,15 @@ public class DisplayFragment extends Fragment {
         } else {
             //onResume
             mContentDes.setText(Utils.getDescription(mPieceList));
-            mOreoView.setAdapter(mOreoAdapter);
+            mOreoAdapter.notifyDataSetChanged();
         }
     }
 
     private void initView(View view) {
         mContentDes = view.findViewById(R.id.gen_des);
         mOreoView = view.findViewById(R.id.oreo_display);
-        view.findViewById(R.id.reset_data).setOnClickListener((l) -> mResetOreo.resetData());
+        mOreoView.setAdapter(mOreoAdapter);
+        view.findViewById(R.id.reset_data).setOnClickListener((v) -> mResetOreo.resetData());
     }
 
     private void initData() {

@@ -23,7 +23,7 @@
         android:maxLines="5"
         android:textSize="@dimen/stuffing_text_size" />
 
-    <com.p.oreoview.OreoView
+    <ListView
         android:id="@+id/oreo_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
